@@ -256,7 +256,7 @@ def load_templates(file, output_file=None):
                 output.write('</page>\n')
             page = []
             articles += 1
-            if articles % 1000 == 0:
+            if articles % 500_000 == 0:
                 logging.info("Preprocessed %d pages", articles)
     if output_file:
         output.close()
@@ -482,7 +482,7 @@ def reduce_process(output_queue, output):
     """
 
     interval_start = default_timer()
-    period = 1000
+    period = 500_000
     # FIXME: use a heap
     ordering_buffer = {}  # collected pages
     next_ordinal = 0  # sequence number of pages
